@@ -73,7 +73,7 @@ public class PersistenciaTiendaCafeteria {
                 double precio = Double.parseDouble(partes[2]);
                 int cantidad = Integer.parseInt(partes[3]);
                 String ubicacion = partes[5];
-                Articulo nuevoArticulo = new Articulo(nombre, categoria, precio, cantidad);
+                Articulo nuevoArticulo = new Articulo(nombre, categoria, precio, cantidad, ubicacion);
                 tienda.agregarArticulo(nuevoArticulo);
             }
         }
