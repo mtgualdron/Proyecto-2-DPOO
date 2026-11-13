@@ -1,19 +1,19 @@
 package Usuarios;
 
-import java.util.List;
-
-import DeporteIndividual.Instalacion;
-import Entrenamiento.Asistencia;
-import Entrenamiento.SesionesEntrenamiento;
-
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-
+import DeporteConjunto.DeporteConjunto;
+import DeporteIndividual.Instalacion;
+import Entrenamiento.Asistencia;
+import Entrenamiento.SesionesEntrenamiento;
 import Excepciones.ClubException;
+import Partidos.EstadisticaFutbol;
+import Partidos.EstadisticaPartido;
+import Partidos.Partido;
 
 public class Entrenador extends Empleado {
 	
@@ -63,7 +63,7 @@ public class Entrenador extends Empleado {
         if (p == null || jugador == null) {
             throw new ClubException("Necesitamos el partido y el jugador para registrar la tarjeta.");
         }
-        if (!DeporteConjunto.FUTBOL.equalsIgnoreCase(p.getDeporte().getNombre())) {
+        if (!"FUTBOL".equalsIgnoreCase(p.getDeporte().getNombre())) {
             throw new ClubException("Las tarjetas solo se registran en partidos de fútbol.");
         }
         if (tipo == null) {
@@ -72,7 +72,7 @@ public class Entrenador extends Empleado {
         EstadisticaPartido e = p.getEstadistica(jugador);
         EstadisticaFutbol futbol;
         if (e == null) {
-            futbol = new EstadisticaFutbol(jugador);
+            futbol = new EstadisticaFutbol(jugador, 0, 0,0, false, null); //se asume que las estadisticas estan vacias por ser socio nuevo
             p.registrarEstadistica(futbol);
         } else {
             futbol = (EstadisticaFutbol) e;

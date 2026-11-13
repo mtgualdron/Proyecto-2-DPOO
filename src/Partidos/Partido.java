@@ -91,7 +91,7 @@ public abstract class Partido {
         return this.marcadorLocal == this.marcadorVisitante;
     }
 
-    public EstadisticaPartido obtenerEstadistica(Socio socio) {
+    public EstadisticaPartido getEstadistica(Socio socio) {
     	 /**Devuelve null si el jugador no tiene estadística */
     	for (EstadisticaPartido estadistica : estadisticas) {
             if (estadistica.getSocio().equals(socio)) 
@@ -122,13 +122,13 @@ public abstract class Partido {
         return false; 
     }
 
-    public void agregarEstadistica(EstadisticaPartido estadistica) {
+    public void registrarEstadistica(EstadisticaPartido estadistica) {
     	// pendiente descripcion
     	   if (estadistica == null)
                throw new IllegalArgumentException("La estadística es obligatoria");
            if (!participantes.contains(estadistica.getSocio()))
                throw new IllegalArgumentException("El jugador no participó en el partido");
-           if (obtenerEstadistica(estadistica.getSocio()) != null)
+           if (getEstadistica(estadistica.getSocio()) != null)
                throw new IllegalArgumentException("El jugador ya tiene estadística en este partido");
            if (!corresponde(estadistica)) // REVISAR
                throw new IllegalArgumentException("La estadística no corresponde al deporte");

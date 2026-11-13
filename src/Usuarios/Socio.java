@@ -124,7 +124,7 @@ public class Socio extends Usuario {
            throw new ClubException("¡Ya estás inscrito en " + d.getNombre() + " No puedes inscribirte otra vez ");
        }
        InscripcionIndividual inscripcion = new InscripcionIndividual(this, d, nivel);
-       PuntajeRanking ranking = new PuntajeRanking(this, d, InscripcionIndividual.eloInicialPara(ins.getNivel()));
+       PuntajeRanking ranking = new PuntajeRanking(this, d, InscripcionIndividual.eloInicialPara(inscripcion.getNivel()));
        d.registrarInscripcion(inscripcion);
        inscripciones.add(inscripcion);
        rankings.add(ranking);
@@ -152,12 +152,14 @@ public class Socio extends Usuario {
 		   if (r.getdisciplina()==d) {
 			   return r;
 		   }
+        return null;
+       }
 	   
        throw new ClubException("Aún no tienes puntaje  " + (d == null ? "esa disciplina" : d.getNombre())
                + ". Inscríbete.");
 	   }
 	   
-   }
+   
    public List<EstadisticaPartido> consultarEstadisticasPorDeporte(DeporteConjunto deporte) throws ClubException {
        if (deporte == null) {
            throw new ClubException("Elige el deporte del que quieres ver estadistica acumulada.");
@@ -258,9 +260,16 @@ public class Socio extends Usuario {
 	public void registrarPartido(Partido p) {
 		if (p != null && !partidos.contains(p)) {
 			partidos.add(p);
+        }
+    }
+
+    public void recibirBebidaCaliente(){
+        this.bebidaCalienteActiva = true;
     }
 }
-	}
+    
+
+	
 
 
 

@@ -6,6 +6,7 @@ import DeporteConjunto.DeporteConjunto;
 import DeporteConjunto.Equipo;
 import Entrenamiento.SesionesEntrenamiento;
 import Excepciones.ClubException;
+import Excepciones.UbicacionInvalidaException;
 import DeporteIndividual.Reserva;
 import Partidos.Partido;
 import TiendaCafeteria.Articulo;
@@ -116,8 +117,8 @@ public class Administrador extends Usuario {
         return resultado;
     }
 
-    public List<SesionEntrenamiento> consultarHistorialEntrenamiento() {
-        List<SesionEntrenamiento> resultado = new ArrayList<>();
+    public List<SesionesEntrenamiento> consultarHistorialEntrenamiento() {
+        List<SesionesEntrenamiento> resultado = new ArrayList<>();
         for (Empleado e : empleados) {
             if (e instanceof Entrenador) {
                 resultado.addAll(((Entrenador) e).getSesiones());
@@ -144,7 +145,7 @@ public class Administrador extends Usuario {
         return resultado;
     }
 
-    public void restablecerArticulo(Articulo articulo, String ubicacion, int cantidad) throws ClubException {
+    public void restablecerArticulo(Articulo articulo, String ubicacion, int cantidad) throws ClubException, UbicacionInvalidaException {
         if (articulo == null) {
             throw new ClubException("Elige el artículo que quieres restablecer.");
         }

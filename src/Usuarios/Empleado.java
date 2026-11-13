@@ -58,11 +58,15 @@ public abstract class Empleado extends Usuario{
 
 	public boolean estaDisponibleEn (DayOfWeek dia, LocalTime hora) {
 		for (Turno t : turnos) {
-			if (t == dia && t == hora) {
+            DayOfWeek diaT = t.getDia();
+            LocalTime horaT = t.getHora();
+			if (diaT == dia && horaT.equals(hora)) {
 				return true;
-			}
-			return false;}}
-
+            }
+        }
+		return false;
+    }
+        
     public void solicitarCambioTurno(Turno actual, Turno nuevo) throws ClubException {
         if (actual == null || !turnos.contains(actual)) {
             throw new ClubException("El turno que quieres cambiar no está entre tus turnos.");
