@@ -149,15 +149,14 @@ public class Socio extends Usuario {
    }
    public PuntajeRanking obtenerRanking (DisciplinaIndividual d) throws ClubException {
 	   for (PuntajeRanking r: rankings) {
-		   if (r.getdisciplina()==d) {
+		   if (r.getDisciplina()==d) {
 			   return r;
 		   }
-        return null;
-       }
-	   
-       throw new ClubException("Aún no tienes puntaje  " + (d == null ? "esa disciplina" : d.getNombre())
-               + ". Inscríbete.");
-	   }
+        }
+           
+        throw new ClubException("No se pudo obtener el ranking. Revisa si tu busqueda está correcta o si tienes un ranking iniciado en el deporte que consultaste.");
+       
+    }
 	   
    
    public List<EstadisticaPartido> consultarEstadisticasPorDeporte(DeporteConjunto deporte) throws ClubException {

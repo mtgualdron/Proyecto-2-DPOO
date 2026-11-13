@@ -3,9 +3,9 @@ package DeporteConjunto;
 import Excepciones.ClubException;
 
 public class DeporteConjunto {
-	 public static final String FUTBOL = "Fútbol";
-	    public static final String BALONCESTO = "Baloncesto";
-	    public static final String VOLEIBOL = "Voleibol";
+	 public static final String FUTBOL = "FUTBOL";
+	    public static final String BALONCESTO = "BALONCESTO";
+	    public static final String VOLEIBOL = "VOLEIBOL";
 
 	    private final String nombre;
 	    private final int numeroMinimoJugadores;
