@@ -5,6 +5,7 @@ import DeporteConjunto.Categoria;
 import DeporteConjunto.DeporteConjunto;
 import DeporteConjunto.Equipo;
 import Entrenamiento.SesionesEntrenamiento;
+import Excepciones.CantidadInvalidaException;
 import Excepciones.ClubException;
 import Excepciones.UbicacionInvalidaException;
 import DeporteIndividual.Reserva;
@@ -145,7 +146,7 @@ public class Administrador extends Usuario {
         return resultado;
     }
 
-    public void restablecerArticulo(Articulo articulo, String ubicacion, int cantidad) throws ClubException, UbicacionInvalidaException {
+    public void restablecerArticulo(Articulo articulo, String ubicacion, int cantidad) throws ClubException, UbicacionInvalidaException, CantidadInvalidaException {
         if (articulo == null) {
             throw new ClubException("Elige el artículo que quieres restablecer.");
         }

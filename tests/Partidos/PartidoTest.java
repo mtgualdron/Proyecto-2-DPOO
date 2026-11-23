@@ -48,6 +48,11 @@ public class PartidoTest {
         assertTrue(partido.puedeJugarse(equipo1));
     }
 
+    @Test 
+    void registrarAmarilla(){
+        
+    }
+
 
 
 

@@ -1,5 +1,6 @@
 package TiendaCafeteria;
 
+import Excepciones.CantidadInvalidaException;
 import Excepciones.UbicacionInvalidaException;
 
 public class Articulo {
@@ -62,12 +63,16 @@ public class Articulo {
     }
 
     public void mover(String nuevaUbicacion) throws UbicacionInvalidaException{ 
-        if (nuevaUbicacion.equals("")){
+        nuevaUbicacion = nuevaUbicacion.trim();
+        if (nuevaUbicacion.equals(null) || nuevaUbicacion.isBlank()){
             throw new UbicacionInvalidaException("No se ingresó una ubicación valida. Verifique que el campo no esté vacío.");}
         this.ubicacion = nuevaUbicacion;
 
         }
-    public void abastecer(int cantidad){
+    public void abastecer(int cantidad) throws CantidadInvalidaException{
+        if (cantidad <= 0){
+            throw new CantidadInvalidaException("Solo se permiten cantidades mayores a 0.");
+        }
         this.cantidadDisponible += cantidad;
     }
 

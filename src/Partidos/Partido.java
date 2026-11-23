@@ -106,16 +106,16 @@ public abstract class Partido {
             return false;
         }
         
-        String nombreDeporte = this.deporte.getNombre().toLowerCase();
+        String nombreDeporte = this.deporte.getNombre();
         
         // Validar según el deporte del partido
-        if (nombreDeporte.contains(DeporteConjunto.FUTBOL) && estadistica instanceof EstadisticaFutbol) {
+        if (nombreDeporte.equalsIgnoreCase(DeporteConjunto.FUTBOL) && estadistica instanceof EstadisticaFutbol) {
             return true;
         }
-        if (nombreDeporte.contains(DeporteConjunto.BALONCESTO) && estadistica instanceof EstadisticaBaloncesto) {
+        if (nombreDeporte.equalsIgnoreCase(DeporteConjunto.BALONCESTO) && estadistica instanceof EstadisticaBaloncesto) {
             return true;
         }
-        if (nombreDeporte.contains(DeporteConjunto.VOLEIBOL) && estadistica instanceof EstadisticaVoleibol) {
+        if (nombreDeporte.equalsIgnoreCase(DeporteConjunto.VOLEIBOL) && estadistica instanceof EstadisticaVoleibol) {
             return true;
         }
         
