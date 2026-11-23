@@ -27,6 +27,7 @@ public class SocioTest {
         socio1.inscribirseEnDisciplina(deporte1, "PRINCIPIANTE");
         socio1.inscribirseEnDisciplina(deporte2, "INTERMEDIO");
         assertEquals("padel", socio1.obtenerRanking(deporte2).getDisciplina().getNombre());
+        
 
 
     }

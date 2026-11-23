@@ -25,6 +25,7 @@ public class Cafeteria {
     public Cafeteria() {
         this.bebidas = new ArrayList<>();
         this.snacks = new ArrayList<>();
+        this.ventas = new ArrayList<>();
     }
 
     //Metod
