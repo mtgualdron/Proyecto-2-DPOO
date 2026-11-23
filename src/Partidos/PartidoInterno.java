@@ -12,6 +12,7 @@ public class PartidoInterno extends Partido {
     // Constructor 
     public PartidoInterno(Date fecha, DeporteConjunto deporte, List<Equipo> equiposParticipantes) { 
     	super(fecha, deporte);
+        this.equiposParticipantes = equiposParticipantes;
     } 
     
     //metodos 
